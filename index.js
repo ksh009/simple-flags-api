@@ -3,8 +3,13 @@ const cors = require("cors");
 const flagData = require("./flag-data/cleaned_data.json");
 
 const app = express();
-app.use(cors());
 const port = 5000;
+
+const corsOptions = {
+  origin: "https://restful-countries-ksh.netlify.app",
+};
+
+app.use(cors(corsOptions));
 
 app.get("/countries", (req, res) => {
   try {
@@ -15,18 +20,20 @@ app.get("/countries", (req, res) => {
 });
 
 app.get("/country/:name", (req, res) => {
-    try {
-      const countryName = req.params.name;
-      const country = flagData.find((country) => country.common_name === countryName);
-      if (country) {
-        res.status(200).json(country);
-      } else {
-        res.status(404).json({ message: "Country not found" });
-      }
-    } catch (error) {
-      res.status(500).json(error);
+  try {
+    const countryName = req.params.name;
+    const country = flagData.find(
+      (country) => country.common_name === countryName
+    );
+    if (country) {
+      res.status(200).json(country);
+    } else {
+      res.status(404).json({ message: "Country not found" });
     }
-  });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 app.listen(port, () => {
   console.log(`Flag service is running at http://localhost:${port}`);
