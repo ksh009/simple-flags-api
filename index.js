@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const flagData = require("./flag-data/cleaned_data.json");
+const flagData = require("./flag_data/cleaned_data.json");
 
 const app = express();
 const port = 5000;
