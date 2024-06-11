@@ -1,9 +1,10 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
 const routes = require("./api/countries/routes.js");
 
 app.use(express.json({ extended: false }));
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // const corsOptions = {
 //   origin: ["https://restful-countries-ksh.netlify.app", "http://localhost:3000"],
