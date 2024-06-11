@@ -39,3 +39,5 @@ app.get("/country/:name", (req, res) => {
 app.listen(port, () => {
   console.log(`Flag service is running at http://localhost:${port}`);
 });
+
+module.exports = app;
