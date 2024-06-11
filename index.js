@@ -6,10 +6,11 @@ const app = express();
 const port = 5000;
 
 const corsOptions = {
-  origin: "https://restful-countries-ksh.netlify.app",
+  origin: ["https://restful-countries-ksh.netlify.app", "http://localhost:3000"],
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 app.get("/countries", (req, res) => {
   try {
