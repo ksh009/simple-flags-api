@@ -6,9 +6,9 @@ const routes = require("./api/countries/routes.js");
 app.use(express.json({ extended: false }));
 const port = process.env.PORT || 5000;
 
-// const corsOptions = {
-//   origin: ["https://restful-countries-ksh.netlify.app", "http://localhost:3000"],
-// };
+const corsOptions = {
+  origin: ["https://restful-countries-ksh.netlify.app", "http://localhost:3000"],
+};
 
 // app.use(cors(corsOptions));
 app.use(cors());
@@ -17,5 +17,3 @@ app.use(routes);
 app.listen(port, () => {
   console.log(`Flag service is running at http://localhost:${port}`);
 });
-
-module.exports = app;
