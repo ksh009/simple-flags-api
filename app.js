@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const routes = require("./api/countries/routes.js");
 
-const app = express();
+app.use(express.json({ extended: false }));
 const port = 5000;
 
 // const corsOptions = {
